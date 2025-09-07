@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for circuit diagrams */
+.circuit-diagram {
+  font-family: 'Courier New', monospace;
+}
+
+.circuit-component {
+  fill: #f8f9fa;
+  stroke: #6c757d;
+  stroke-width: 2;
+}
+
+.circuit-wire {
+  stroke: #dc3545;
+  stroke-width: 2;
+  fill: none;
+}
+
+.circuit-pin {
+  fill: #007bff;
+  stroke: white;
+  stroke-width: 1;
+}
+
+.circuit-label {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  fill: #333;
+}
+
+/* Breadboard specific styles */
+.breadboard-grid {
+  fill: #f8f9fa;
+  stroke: #dee2e6;
+  stroke-width: 0.5;
+}
+
+.breadboard-hole {
+  fill: #6c757d;
+  stroke: #495057;
+  stroke-width: 1;
+}
+
+.breadboard-component {
+  fill: #ffffff;
+  stroke: #6c757d;
+  stroke-width: 2;
+  rx: 4;
+}
+
+/* PCB specific styles */
+.pcb-background {
+  fill: #2c3e50;
+}
+
+.pcb-trace {
+  stroke: #e74c3c;
+  stroke-width: 2;
+  fill: none;
+}
+
+.pcb-pad {
+  fill: #f39c12;
+  stroke: white;
+  stroke-width: 1;
+}
+
+.pcb-via {
+  fill: #95a5a6;
+  stroke: white;
+  stroke-width: 1;
+}
+
+/* 3D render styles */
+.render-3d-container {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+/* Animation classes */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .circuit-diagram {
+    font-size: 10px;
+  }
+  
+  .circuit-label {
+    font-size: 10px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .circuit-diagram {
+    break-inside: avoid;
+  }
+}
